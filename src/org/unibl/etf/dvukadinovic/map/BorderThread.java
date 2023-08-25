@@ -54,7 +54,7 @@ public class BorderThread extends Thread{
                         status.setSecond(false);
                         status.setFirst(true);
                         content.setSecond(false);
-                        ReportRecord.createRecord(content.getFirst(), passengers.get(0));
+                        ReportRecord.createRecord(content.getFirst(), null);
                     }else {
                         passengers = passengers.stream().filter(el-> {
                             try {

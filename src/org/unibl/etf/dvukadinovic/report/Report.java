@@ -30,6 +30,9 @@ public class Report implements Serializable {
 
     @Override
     public String toString() {
+        if(passenger==null){
+            return vehicle+" Fatal!\n";
+        }
         return vehicle + " " + passenger;
     }
 }

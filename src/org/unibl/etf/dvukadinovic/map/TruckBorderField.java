@@ -37,7 +37,7 @@ public class TruckBorderField extends BorderField{
         }catch (IOException e){
             logger.warning(e.getMessage());
         }
-        System.out.println(statusList.get(id));
+        //System.out.println(statusList.get(id));
 
         return (!content.getSecond() && (vehicle instanceof Truck) && statusList.get(id)!=0);
     }

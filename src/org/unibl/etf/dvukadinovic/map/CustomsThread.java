@@ -43,7 +43,12 @@ public class CustomsThread extends Thread{
             FileChannel channel = raf.getChannel();
             FileLock lock = channel.lock();
             raf.seek(raf.length());
-            raf.writeBytes(v.toString() +" "+ p.toString() + "\n");
+            if(p == null){
+                raf.writeBytes(v.toString() +" Fatal!\n");
+
+            }else {
+                raf.writeBytes(v.toString() +" "+ p + "\n");
+            }
         }catch (Exception e){
             logger.warning(e.getMessage());
         }
@@ -81,7 +86,7 @@ public class CustomsThread extends Thread{
                         status.setSecond(false);
                         status.setFirst(true);
                         content.setSecond(false);
-                        writeReport(content.getFirst(), passengers.get(0));
+                        writeReport(content.getFirst(), null);
                     }else {
                         passengers = passengers.stream().filter(el-> {
                             if(!el.process().getFirst()){

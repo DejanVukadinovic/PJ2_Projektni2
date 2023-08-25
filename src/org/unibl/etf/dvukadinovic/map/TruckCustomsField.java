@@ -38,7 +38,7 @@ public class TruckCustomsField extends CustomsField {
         }catch (IOException e){
             logger.warning(e.getMessage());
         }
-        System.out.println(statusList.get(id));
+        //System.out.println(statusList.get(id));
 
         return (!content.getSecond() && (vehicle instanceof Truck) && statusList.get(id+2)!=0);
     }

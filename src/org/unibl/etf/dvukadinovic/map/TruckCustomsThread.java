@@ -31,7 +31,7 @@ public class TruckCustomsThread extends CustomsThread{
                         status.setSecond(false);
                         status.setFirst(true);
                         //content.setSecond(false);
-                        writeReport(truck, truck.getPassengers().get(0));
+                        writeReport(truck, null);
                     }else{
                         status.setFirst(true);
                         content.setSecond(false);
