@@ -57,7 +57,8 @@ public class BorderField extends Field{
 
     public void setContent(Vehicle content){
         super.setContent(content);
-        //System.out.println("Border field:"+id);
+        System.out.println("Border processing vehicle: "+content);
+
         if(content!=null){
             status.setFirst(false);
             status.setSecond(true);

@@ -18,7 +18,6 @@ public class TruckCustomsField extends CustomsField {
     static {
         try {
             logger.addHandler(new FileHandler("./logs/truckCustomsField"+System.nanoTime()));
-
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -27,7 +26,6 @@ public class TruckCustomsField extends CustomsField {
         ArrayList<Integer> statusList = new ArrayList<>();
         try(BufferedReader bf = new BufferedReader(new FileReader("./src/setup.txt"))){
             String line = bf.readLine();
-
             while (line != null) {
                 ArrayList<String> tmp = new ArrayList<>(List.of(line.split(",")));
                 for(String e:tmp){
@@ -38,8 +36,6 @@ public class TruckCustomsField extends CustomsField {
         }catch (IOException e){
             logger.warning(e.getMessage());
         }
-        //System.out.println(statusList.get(id));
-
         return (!content.getSecond() && (vehicle instanceof Truck) && statusList.get(id+2)!=0);
     }
     private TruckCustomsThread bThread;

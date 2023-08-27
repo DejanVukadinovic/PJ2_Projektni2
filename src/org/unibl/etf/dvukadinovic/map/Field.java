@@ -18,7 +18,6 @@ public class Field {
             this.content.setFirst(content);
             this.content.setSecond(content!=null);
         }
-        //System.out.println("setting");
     }
     public Vehicle getContent(){
         return content.getFirst();

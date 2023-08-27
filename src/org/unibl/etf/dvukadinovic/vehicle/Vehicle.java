@@ -85,7 +85,6 @@ public class Vehicle extends Thread implements Serializable {
                 logger.warning(e.getMessage());
             }
         }
-        //System.out.println((System.nanoTime()-ts)/1_000_000);
     }
     public List<Passenger> getPassengers(){
         return this.passengers;

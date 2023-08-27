@@ -41,10 +41,6 @@ public class BorderThread extends Thread{
     public void run(){
 
         while (true){
-            //System.out.print("");
-            //try{
-            //   Thread.sleep(0);
-            //}catch (InterruptedException e){}
             Thread.yield();
 
             if (content.getSecond() && content.getFirst()!=null){

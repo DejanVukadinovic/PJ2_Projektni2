@@ -18,7 +18,6 @@ public class TruckCustomsThread extends CustomsThread{
         super(content, status);
         this.content = content;
         this.status = status;
-        //System.out.println(content.getFirst()+ " "+ content.getSecond());
         setDaemon(true);
     }
 
@@ -30,7 +29,6 @@ public class TruckCustomsThread extends CustomsThread{
                     if(truck.getDeclaredWeight()<truck.getActualWeight()){
                         status.setSecond(false);
                         status.setFirst(true);
-                        //content.setSecond(false);
                         writeReport(truck, null);
                     }else{
                         status.setFirst(true);

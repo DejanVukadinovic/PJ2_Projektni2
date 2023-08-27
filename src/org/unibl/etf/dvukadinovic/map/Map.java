@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class Map implements RoadMap {
-    private Pair<Integer, Integer> size = new Pair<>(25, 3);
+    private Pair<Integer, Integer> size = new Pair<>(50, 3);
     private List<List<Field>> map = Collections.synchronizedList(new ArrayList<>());
     public Map(){
         initMap();
@@ -46,7 +46,6 @@ public class Map implements RoadMap {
     }
     public void setContent(Pair<Integer, Integer> coords, Vehicle content){
         if (coords.getFirst()==-1) return;
-        //System.out.println(coords.getFirst() + " " + content);
         map.get(coords.getFirst()).get(coords.getSecond()).setContent(content);
     }
 

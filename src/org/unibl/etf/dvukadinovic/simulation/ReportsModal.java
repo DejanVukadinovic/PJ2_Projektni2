@@ -5,12 +5,13 @@ import org.unibl.etf.dvukadinovic.report.ReportRecord;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.io.BufferedReader;
+import java.util.HashSet;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class ReportsModal extends JFrame {
     private static Logger logger = Logger.getLogger(ReportsModal.class.getName());
@@ -26,7 +27,7 @@ public class ReportsModal extends JFrame {
         this.setLayout(new FlowLayout());
         this.add(new Label("Reports"));
         //this.add(new Label("second"));
-        ArrayList<Report> reports = ReportRecord.getRecord();
+        ArrayList<Report> reports = new ArrayList<>();
         System.out.println(ReportRecord.getRecord());
         ArrayList<String> customsReports = new ArrayList<>();
         try(BufferedReader reader = new BufferedReader(new FileReader(ReportRecord.customsRecordString))){
@@ -40,8 +41,19 @@ public class ReportsModal extends JFrame {
         }catch (Exception e){
             logger.info("No customs reports");
         }
+
+        System.out.println(ReportRecord.recordString);
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ReportRecord.recordString))){
+            ArrayList<Report> obj = (ArrayList<Report>) ois.readObject();
+            System.out.println(obj);
+            reports = obj;
+        }catch(Exception e){
+            logger.warning(e.getMessage());
+        }
+
         JLabel customsLabel = new JLabel("Customs reports:");
         this.add(customsLabel);
+        customsReports = new ArrayList<>(new HashSet<>(customsReports));
         for(String report: customsReports){
             JLabel label = new JLabel(report);
             this.add(label);
